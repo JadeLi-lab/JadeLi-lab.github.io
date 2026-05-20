@@ -10,7 +10,7 @@
       {% for link in site.data.links %}
         <li><a href="{{ link.href | relative_url }}"><span data-en="{{ link.name }}" data-zh="{{ link.name_zh }}">{{ link.name }}</span></a></li>
       {% endfor %}
-      <li><button onclick="toggleLang()" style="background:none;border:1px solid #888;color:#bbb;padding:4px 12px;border-radius:4px;cursor:pointer;font-size:12px;font-family:inherit" id="langBtn">中文</button></li>
+      <li><button onclick="toggleLang()" style="background:#1d4ed8;color:#fff;border:none;padding:6px 16px;border-radius:20px;cursor:pointer;font-size:13px;font-weight:700;font-family:inherit;transition:all 0.2s;box-shadow:0 2px 6px rgba(29,78,216,0.3)" id="langBtn" onmouseenter="this.style.background='#1e40af'" onmouseleave="this.style.background='#1d4ed8'">🌐 中文</button></li>
     </ul>
   </nav>
   <nav class="main">
@@ -35,7 +35,7 @@
         🔗 ORCID: {{ site.author.orcid }}
       </p>
       <p style="text-align:center;margin-top:10px">
-        <button onclick="toggleLang()" style="background:#333;color:#fff;border:1px solid #555;padding:6px 16px;border-radius:4px;cursor:pointer;font-family:inherit" id="langBtn2">中文</button>
+        <button onclick="toggleLang()" style="background:#1d4ed8;color:#fff;border:none;padding:6px 18px;border-radius:20px;cursor:pointer;font-size:13px;font-weight:700;font-family:inherit" id="langBtn2">🌐 中文</button>
       </p>
     </section>
   </section>
