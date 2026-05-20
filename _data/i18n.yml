@@ -43,7 +43,7 @@ en:
     d3:
       title: Large-Scale Unmanned Swarms
       subtitle: Scalable Autonomous Coordination · Emergent Collective Intelligence · Communication & Data Infrastructure
-      content: Investigating the fundamental bottlenecks that prevent swarms from achieving truly large-scale autonomous coordination. Developing coordination methods that enable swarms to handle complex missions with emergent collective intelligence — where the whole exceeds the sum of its parts. Building the critical infrastructure for swarm autonomy, including resilient communication networks for information sharing and adaptive data distribution algorithms that scale with swarm size.
+      content: What keeps swarms from scaling? We investigate the core bottlenecks that prevent large-scale autonomous coordination — from communication breakdowns to decision-making failures in dynamic environments. Our goal is to unlock emergent collective intelligence, where thousands of agents self-organize to tackle complex missions far beyond any individual's capability. This demands resilient communication networks that stay robust under interference, and adaptive data distribution algorithms that scale seamlessly as the swarm grows.
       innovation: "Contribution: Quantitatively characterized UAV swarm resilience under realistic EMI attack scenarios. Proposed a difficulty-aware distributed backup strategy that adapts to dynamic topology changes — advancing beyond static resilience assessment to proactive autonomous protection. Established a cross-domain methodology connecting complex network resilience theory with swarm autonomy, while identifying key communication and data-distribution bottlenecks that limit swarm scalability."
       keywords:
         - Large-Scale Swarm
@@ -135,7 +135,7 @@ zh:
     d3:
       title: 大规模无人集群
       subtitle: 可扩展自主协同 · 涌现群体智能 · 通信与数据基座
-      content: 研究集群走向大规模自主协同的核心瓶颈，提出使集群真正实现大规模自主协同并承担复杂任务、达成"一加一大于二"涌现效果的自主协同方法。探索集群自主协同所需的关键基座，包括信息共享依赖的弹性通信网络、随集群规模扩展的自适应数据分配算法等。
+      content: 是什么制约了集群走向大规模自主协同？我们聚焦三大核心瓶颈：动态环境下的通信中断、大规模节点的决策失效、以及任务复杂度的指数增长。研究目标是激发涌现群体智能——让成千上万的自主体自发协同，完成远超个体能力的复杂使命。为此，我们构建两大关键基座：抗干扰弹性通信网络确保信息高效共享，自适应数据分发算法则随集群规模无缝扩展。
       innovation: "主要贡献：在真实EMI攻击场景下定量刻画了无人机集群韧性；提出了难度感知的分布式备份策略，能自适应动态拓扑变化 — 从静态韧性评估推进到主动自主保护新范式；建立了连接复杂网络韧性理论与集群自主性的跨领域方法论，同时识别了制约集群可扩展性的关键通信与数据分配瓶颈。"
       keywords:
         - 大规模集群
