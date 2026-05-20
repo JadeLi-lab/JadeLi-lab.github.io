@@ -22,12 +22,6 @@ echarts: true
     </div>
   </header>
   <p data-en="{{ en.hero.desc }}" data-zh="{{ zh.hero.desc }}">{{ en.hero.desc }}</p>
-  <footer>
-    <ul class="stats">
-      <li><a href="mailto:{{ site.author.email }}" class="icon">📧 {{ site.author.email }}</a></li>
-      <li><a href="https://orcid.org/{{ site.author.orcid }}" class="icon" target="_blank" rel="noopener">🔗 ORCID</a></li>
-    </ul>
-  </footer>
 </article>
 
 <!-- RESEARCH DIRECTIONS -->
@@ -70,24 +64,30 @@ echarts: true
     </div>
   </header>
   <div id="graphChart" style="height:520px;width:100%"></div>
-  <p style="text-align:center;color:#888;font-size:0.85em;margin-top:8px"
-     data-en="🔵 Fundamental Problems &nbsp; 🟣 CPS Resilience &nbsp; 🟢 UAV Swarms"
-     data-zh="🔵 基础科学问题 &nbsp; 🟣 CPS韧性 &nbsp; 🟢 无人集群">
-     🔵 Fundamental Problems &nbsp; 🟣 CPS Resilience &nbsp; 🟢 UAV Swarms
+  <p style="text-align:center;color:#888;font-size:0.85em;margin-top:8px">
+    <span data-en="🔵 Fundamental Problems &nbsp; 🟣 CPS Resilience &nbsp; 🟢 UAV Swarms"
+          data-zh="🔵 基础科学问题 &nbsp; 🟣 CPS韧性 &nbsp; 🟢 无人集群">🔵 Fundamental Problems &nbsp; 🟣 CPS Resilience &nbsp; 🟢 UAV Swarms</span>
   </p>
 </article>
 
 <!-- MODAL -->
-<div id="paperModal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:1000;align-items:center;justify-content:center" onclick="closeModal()">
-  <div style="background:#fff;border-radius:8px;padding:32px;max-width:640px;max-height:80vh;overflow-y:auto;width:90%;position:relative" onclick="event.stopPropagation()">
-    <button onclick="closeModal()" style="position:absolute;top:12px;right:12px;width:32px;height:32px;border-radius:50%;border:1px solid #ddd;background:#fff;font-size:16px;cursor:pointer">✕</button>
+<div id="paperModal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:1000;align-items:center;justify-content:center;padding:20px" onclick="closeModal()">
+  <div style="background:#fff;border-radius:10px;padding:36px 32px 28px;max-width:660px;max-height:85vh;overflow-y:auto;width:100%;position:relative;box-shadow:0 10px 40px rgba(0,0,0,0.15)" onclick="event.stopPropagation()">
+    <button onclick="closeModal()" style="position:absolute;top:14px;right:14px;width:34px;height:34px;border-radius:50%;border:1px solid #e2e8f0;background:#f7fafc;font-size:16px;cursor:pointer;color:#718096;line-height:1;z-index:5">✕</button>
     <span id="modalYear" style="display:inline-block;padding:3px 12px;border-radius:10px;font-size:12px;font-weight:700;color:#fff;background:#4d90fe"></span>
     <span id="modalJournal" style="font-size:12px;color:#888;margin-left:8px"></span>
-    <h3 id="modalTitle" style="margin-top:12px;font-size:1.2em"></h3>
-    <div style="font-size:13px;color:#888;margin-bottom:12px">DOI: <a id="modalDOI" href="#" target="_blank" rel="noopener"></a></div>
-    <div id="modalHighlight" style="padding:10px 14px;background:#f0fff4;border-left:3px solid #2ecc71;border-radius:4px;font-size:13px;color:#22543d;margin-bottom:12px"></div>
-    <div id="modalAbstract" style="font-size:14px;line-height:1.8"></div>
-    <div id="modalKeywords" style="margin-top:12px;display:flex;flex-wrap:wrap;gap:4px"></div>
+    <h3 id="modalTitle" style="margin-top:12px;font-size:1.15em;color:#1a202c;line-height:1.4;padding-right:30px"></h3>
+    <div style="font-size:13px;color:#888;margin-bottom:14px">DOI: <a id="modalDOI" href="#" target="_blank" rel="noopener" style="color:#3182ce"></a></div>
+    <div id="modalHighlight" style="padding:10px 14px;background:#f0fff4;border-left:3px solid #38a169;border-radius:6px;font-size:13px;color:#22543d;margin-bottom:14px;line-height:1.6"></div>
+    <div id="modalAbstract" style="font-size:14px;line-height:1.8;color:#4a5568;margin-bottom:14px"></div>
+    <div id="modalKeywords" style="margin-bottom:16px;display:flex;flex-wrap:wrap;gap:5px"></div>
+    <div style="border-top:1px solid #e2e8f0;padding-top:14px;margin-top:4px">
+      <h4 style="font-size:14px;color:#718096;margin-bottom:10px">🔗 <span data-en="Related Papers" data-zh="相关论文" id="modalRelatedLabel">Related Papers</span></h4>
+      <div id="modalRelated"></div>
+    </div>
+    <a href="{{ '/publications' | relative_url }}" style="display:inline-block;margin-top:6px;font-size:13px;color:#3182ce;font-weight:600">
+      <span data-en="View all publications →" data-zh="查看全部论文 →">View all publications →</span>
+    </a>
   </div>
 </div>
 
@@ -107,9 +107,8 @@ var paperRelations = [
 {%endfor%}];
 
 function getGraphOption(en) {
-  return {
-    tooltip:{formatter:function(p){if(p.dataType==='node'){var d=p.data;return'<strong>#'+d.id+' '+(en?d.title:d.titleCN).slice(0,60)+'</strong><br/>'+d.journal+' ('+d.year+')<br/>💡'+(en?d.highlight:d.highlightCN).slice(0,100)}return''}},
-    legend:{data:en?['Fundamental Problems','CPS Resilience','UAV Swarms']:['基础科学问题','CPS韧性','无人集群'],bottom:0,textStyle:{color:'#888',fontSize:12}},
+  return {tooltip:{formatter:function(p){if(p.dataType==='node'){var d=p.data;return'<strong>#'+d.id+' '+(en?d.title:d.titleCN).slice(0,60)+'</strong><br/>'+d.journal+' ('+d.year+')<br/>💡'+(en?d.highlight:d.highlightCN).slice(0,100)}return''}},
+    legend:{show:false},
     series:[{type:'graph',layout:'force',force:{repulsion:350,gravity:0.08,edgeLength:[120,280]},roam:true,draggable:true,
       data:publications.map(function(p){return{id:p.id,name:'['+p.id+']',symbolSize:32,category:p.direction-1,label:{show:true,fontSize:11,fontWeight:700,color:'#333'},data:p}}),
       links:paperRelations.map(function(r){return{source:r.source,target:r.target}}),
@@ -120,12 +119,7 @@ function getGraphOption(en) {
       ],emphasis:{focus:'adjacency',lineStyle:{width:4}},lineStyle:{color:'#ddd',curveness:0.25,opacity:0.7}}]};
 }
 
-function renderGraph() {
-  var d=document.getElementById('graphChart'); if(!d)return;
-  var c=echarts.init(d); c.setOption(getGraphOption(isEn));
-  c.on('click',function(p){if(p.dataType==='node')showPaperModal(p.data.data,isEn)});
-  d._echart=c;
-}
+function renderGraph(){var d=document.getElementById('graphChart');if(!d)return;var c=echarts.init(d);c.setOption(getGraphOption(isEn));c.on('click',function(p){if(p.dataType==='node')showPaperModal(p.data.data,isEn)});d._echart=c;}
 
 function showPaperModal(p,en) {
   document.getElementById('modalYear').textContent=p.year;
@@ -134,22 +128,31 @@ function showPaperModal(p,en) {
   var doi=document.getElementById('modalDOI');doi.textContent=p.doi;doi.href='https://doi.org/'+p.doi;
   document.getElementById('modalHighlight').innerHTML='<strong>💡 '+(en?'Core Highlight':'核心亮点')+'：</strong>'+(en?p.highlight:p.highlightCN);
   document.getElementById('modalAbstract').innerHTML='<strong>'+(en?'Abstract':'摘要')+'：</strong>'+(en?p.abstract:p.abstractCN);
+  document.getElementById('modalRelatedLabel').textContent=en?'Related Papers':'相关论文';
   var kw=document.getElementById('modalKeywords');kw.innerHTML='';
   (en?p.keywords:p.keywordsCN).forEach(function(k){
     var s=document.createElement('span');
     s.style.cssText='display:inline-block;padding:3px 10px;border-radius:12px;font-size:11px;font-weight:600;background:#e8f0fe;color:#1967d2;margin:2px';
     s.textContent=k;kw.appendChild(s);
   });
+  // Related papers
+  var relDiv=document.getElementById('modalRelated');relDiv.innerHTML='';
+  paperRelations.filter(function(r){return r.source===p.id||r.target===p.id}).forEach(function(r){
+    var oid=r.source===p.id?r.target:r.source;
+    var o=publications.find(function(x){return x.id===oid});
+    if(!o)return;
+    var div=document.createElement('div');
+    div.style.cssText='padding:10px 14px;background:#f7fafc;border-radius:6px;margin-bottom:6px;font-size:13px;cursor:pointer;border:1px solid #e2e8f0';
+    div.innerHTML='<span style="color:#3182ce;font-weight:600">'+(en?r.label:r.labelCN)+'</span><div style="font-size:12px;color:#888;margin-top:2px">→ ['+o.id+'] '+(en?o.title:o.titleCN).slice(0,70)+'...</div>';
+    div.onclick=function(ev){ev.stopPropagation();showPaperModal(o,en);};
+    relDiv.appendChild(div);
+  });
   document.getElementById('paperModal').style.display='flex';
 }
 
 function closeModal(){document.getElementById('paperModal').style.display='none';}
 
-function onLangChange(enVal) {
-  isEn=enVal;
-  var d=document.getElementById('graphChart');
-  if(d&&d._echart)d._echart.setOption(getGraphOption(enVal));
-}
+function onLangChange(enVal){isEn=enVal;var d=document.getElementById('graphChart');if(d&&d._echart)d._echart.setOption(getGraphOption(enVal));}
 
 document.addEventListener('DOMContentLoaded',function(){renderGraph();});
 </script>

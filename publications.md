@@ -104,6 +104,8 @@ function setFilter(f, btn) {
   document.querySelectorAll('.filter-btn').forEach(function(b) { b.classList.remove('active'); b.style.background='#fff'; b.style.color='#333'; });
   btn.classList.add('active'); btn.style.background='#4d90fe'; btn.style.color='#fff';
   filterPubs();
+  // Also update graph if visible
+  if (!isListView) renderPubGraph();
 }
 
 function toggleView() {
@@ -115,23 +117,40 @@ function toggleView() {
   if (!isListView) setTimeout(renderPubGraph, 200);
 }
 
+var catColors = ['#4d90fe','#9b59b6','#2ecc71'];
 function renderPubGraph() {
   var dom = document.getElementById('pubGraphChart');
   if (!dom) return; if (dom._echart) dom._echart.dispose();
   var chart = echarts.init(dom);
   var nodes = publications.map(function(p) {
-    return {id:p.id,name:p.id+'. '+(isEn?p.title:p.titleCN).slice(0,55)+'...',symbolSize:38,category:p.direction-1,label:{show:true,fontSize:11,color:'#333'},data:p};
+    var isFiltered = currentFilter > 0 && p.direction !== currentFilter;
+    return {
+      id:p.id,
+      name:p.id+'. '+(isEn?p.title:p.titleCN).slice(0,55)+'...',
+      symbolSize: isFiltered ? 24 : 38,
+      category:p.direction-1,
+      label:{show:!isFiltered,fontSize:11,color:'#333'},
+      itemStyle: isFiltered ? {color:'#d4d4d4',borderColor:'#e0e0e0',borderWidth:1,opacity:0.4} : {color:catColors[p.direction-1]},
+      data:p
+    };
   });
   var links = paperRelations.map(function(r) {
-    return {source:r.source,target:r.target,label:{show:true,formatter:isEn?r.label:r.labelCN,fontSize:10,color:'#888'}};
+    var srcPub = publications.find(function(x){return x.id===r.source});
+    var tgtPub = publications.find(function(x){return x.id===r.target});
+    var linkDimmed = currentFilter > 0 && srcPub && tgtPub && (srcPub.direction !== currentFilter || tgtPub.direction !== currentFilter);
+    return {
+      source:r.source,target:r.target,
+      label:{show:!linkDimmed,formatter:isEn?r.label:r.labelCN,fontSize:10,color:'#888'},
+      lineStyle: linkDimmed ? {color:'#e8e8e8',opacity:0.2,curveness:0.3} : {color:'#cbd5e1',opacity:0.7,curveness:0.3}
+    };
   });
   var cats = isEn ? ['Dir 1: Complex Systems','Dir 2: CPS Resilience','Dir 3: UAV Swarms'] : ['方向一：复杂系统建模','方向二：CPS韧性','方向三：无人集群'];
   chart.setOption({
     tooltip:{formatter:function(p){if(p.dataType==='node'){var d=p.data.data;return'<strong>'+(isEn?d.title:d.titleCN)+'</strong><br/>'+d.journal+' ('+d.year+')<br/>'+(isEn?d.highlight:d.highlightCN)}return''}},
     legend:{data:cats,bottom:10,textStyle:{color:'#888',fontSize:12}},
     series:[{type:'graph',layout:'force',force:{repulsion:500,gravity:0.1,edgeLength:[150,320]},roam:true,draggable:true,data:nodes,links:links,
-      categories:[{name:cats[0],itemStyle:{color:'#4d90fe'}},{name:cats[1],itemStyle:{color:'#9b59b6'}},{name:cats[2],itemStyle:{color:'#2ecc71'}}],
-      emphasis:{focus:'adjacency',lineStyle:{width:4}},lineStyle:{color:'#ddd',curveness:0.3,opacity:0.7}}]
+      categories:[{name:cats[0],itemStyle:{color:catColors[0]}},{name:cats[1],itemStyle:{color:catColors[1]}},{name:cats[2],itemStyle:{color:catColors[2]}}],
+      emphasis:{focus:'adjacency',lineStyle:{width:4}},lineStyle:{color:'#cbd5e1',curveness:0.3,opacity:0.7}}]
   });
   chart.on('click',function(p){if(p.dataType==='node')showPaperModal(p.data.data,isEn)});
   dom._echart = chart;

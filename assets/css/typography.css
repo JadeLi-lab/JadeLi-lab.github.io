@@ -1,0 +1,133 @@
+/* === Typography Override ===
+   Inter + Noto Sans SC for crisp rendering on all screens
+   Fixes blurry Raleway/Source Sans Pro from base theme
+   ============================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800;14..32,900&family=Noto+Sans+SC:wght@400;500;600;700;800;900&display=swap');
+
+/* Global font smoothing */
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Body copy — Inter for Latin, Noto Sans SC for Chinese */
+body, input, select, textarea, button {
+  font-family: 'Inter', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+  font-size: 15px !important;
+  font-weight: 400 !important;
+  line-height: 1.7 !important;
+  color: #2d3748;
+}
+
+/* Headings — Inter, semi-bold, no uppercase, tighter spacing */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Inter', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, sans-serif !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.02em !important;
+  text-transform: none !important;        /* kill uppercase */
+  color: #1a202c !important;
+  line-height: 1.3 !important;
+  margin: 0 0 0.6em 0 !important;
+}
+
+h1 { font-size: 28px !important; font-weight: 800 !important; }
+h2 { font-size: 22px !important; font-weight: 700 !important; color: #1a202c !important; }
+h3 { font-size: 17px !important; font-weight: 600 !important; }
+h4 { font-size: 15px !important; font-weight: 600 !important; }
+h5, h6 { font-size: 14px !important; }
+
+/* Paragraphs */
+p {
+  margin: 0 0 1.4em 0;
+  line-height: 1.7;
+  color: #4a5568;
+}
+
+/* Strong */
+strong, b { color: #1a202c; font-weight: 700; }
+
+/* Links — cleaner */
+a {
+  border-bottom: none !important;
+  color: #3182ce !important;
+  text-decoration: none;
+}
+a:hover { color: #2c5282 !important; text-decoration: underline; }
+
+/* Nav/Header specific — keep sidebar clean */
+#header h1 {
+  font-size: 20px !important;
+  font-weight: 800 !important;
+  color: #fff !important;
+  letter-spacing: -0.01em !important;
+}
+#header h1 a { color: #fff !important; border: none !important; }
+#header nav.links a {
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  color: #a0aec0 !important;
+  letter-spacing: 0 !important;
+}
+#header nav.links a:hover { color: #fff !important; }
+
+/* Post titles */
+.post > header .title h2 {
+  font-size: 24px !important;
+  font-weight: 800 !important;
+  color: #1a202c !important;
+  letter-spacing: -0.03em !important;
+}
+.post > header .title p {
+  font-size: 14px !important;
+  color: #718096 !important;
+  margin: 4px 0 0 0 !important;
+}
+
+/* Post meta */
+.post .meta, .post .meta time, .post .meta a {
+  font-size: 12px !important;
+  color: #a0aec0 !important;
+  font-weight: 500 !important;
+}
+.post .meta .author .name {
+  font-weight: 600 !important;
+  color: #4a5568 !important;
+}
+
+/* Sidebar blurb */
+#sidebar h2 { font-size: 18px !important; font-weight: 700 !important; color: #fff !important; }
+#sidebar p, .blurb p { font-size: 13px !important; color: #cbd5e0 !important; line-height: 1.6 !important; }
+
+/* Footer */
+#footer { font-size: 12px !important; color: #a0aec0 !important; }
+
+/* Button */
+.button, button.button {
+  font-family: 'Inter', 'Noto Sans SC', sans-serif !important;
+  font-weight: 600 !important;
+  letter-spacing: 0 !important;
+  text-transform: none !important;
+}
+
+/* Code */
+code, pre {
+  font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace !important;
+  font-size: 13px !important;
+  background: #edf2f7;
+  padding: 2px 6px;
+  border-radius: 4px;
+  color: #2d3748;
+}
+
+/* Mobile */
+@media screen and (max-width: 736px) {
+  body, input, select, textarea {
+    font-size: 14px !important;
+  }
+  h1 { font-size: 24px !important; }
+  h2 { font-size: 20px !important; }
+  h3 { font-size: 16px !important; }
+  .post > header .title h2 { font-size: 20px !important; }
+}
