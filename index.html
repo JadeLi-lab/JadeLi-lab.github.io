@@ -29,16 +29,21 @@ layout: home
     {% assign i = forloop.index0 %}
     {% assign d = en.directions[dk] %}
     {% assign dz = zh.directions[dk] %}
-    <div style="flex:1;min-width:220px;border:1px solid #ccc;border-radius:6px;padding:18px;border-top:4px solid {{ colors[i] }}">
-      <h3 style="margin:0;font-size:1.1em;color:{{ colors[i] }}" data-en="{{ d.title }}" data-zh="{{ dz.title }}">{{ d.title }}</h3>
-      <p style="font-size:0.85em;color:#000;margin:6px 0" data-en="{{ d.subtitle }}" data-zh="{{ dz.subtitle }}">{{ d.subtitle }}</p>
+    {% assign tagBgs = "#e8f0fe,#f3e8ff,#e6f6ed" | split: "," %}
+    {% assign tagColors = "#1a56db,#6d28d9,#176434" | split: "," %}
+    <div style="flex:1;min-width:220px;border:1px solid #ddd;border-radius:8px;padding:20px;border-top:4px solid {{ colors[i] }};border-left:4px solid {{ colors[i] }};background:#fafafa">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px">
+        <span style="background:{{ colors[i] }};color:#fff;width:32px;height:32px;border-radius:8px;display:inline-flex;align-items:center;justify-content:center;font-size:16px;font-weight:800;flex-shrink:0">0{{ i | plus: 1 }}</span>
+        <h3 style="margin:0;font-size:1.1em;color:{{ colors[i] }}" data-en="{{ d.title }}" data-zh="{{ dz.title }}">{{ d.title }}</h3>
+      </div>
+      <p style="font-size:0.8em;color:#555;margin:0 0 8px;font-weight:600" data-en="{{ d.subtitle }}" data-zh="{{ dz.subtitle }}">{{ d.subtitle }}</p>
       <p style="font-size:0.85em;color:#000" data-en="{{ d.content | truncate: 120 }}" data-zh="{{ dz.content | truncate: 120 }}">{{ d.content | truncate: 120 }}</p>
-      <div style="display:flex;flex-wrap:wrap;gap:4px;margin-top:8px">
+      <div style="display:flex;flex-wrap:wrap;gap:4px;margin-top:10px">
         {% for kw in d.keywords limit:4 %}
-        <span style="font-size:0.7em;background:#eee;color:#000;padding:2px 8px;border-radius:10px">{{ kw }}</span>
+        <span style="font-size:0.7em;background:{{ tagBgs[i] }};color:{{ tagColors[i] }};padding:3px 9px;border-radius:12px;font-weight:600">{{ kw }}</span>
         {% endfor %}
       </div>
-      <a href="{{ '/research' | relative_url }}" style="display:inline-block;margin-top:10px;font-size:0.85em;font-weight:700;color:{{ colors[i] }}">
+      <a href="{{ '/research' | relative_url }}" style="display:inline-block;margin-top:12px;font-size:0.85em;font-weight:700;color:{{ colors[i] }}">
         <span data-en="Read more →" data-zh="了解更多 →">Read more →</span>
       </a>
     </div>
