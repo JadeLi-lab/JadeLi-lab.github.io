@@ -1,0 +1,34 @@
+<header id="header">
+  <h1><a href="{{ '/' | relative_url }}">{{ site.author.name }}</a></h1>
+  <p style="font-size:0.8em;color:#bbb;margin-top:-8px">{{ site.author.affiliation }}</p>
+  <nav class="links">
+    <ul>
+      {% for link in site.data.links %}
+        <li><a href="{{ link.href | relative_url }}">{{ link.name }}</a></li>
+      {% endfor %}
+    </ul>
+  </nav>
+  <nav class="main">
+    <ul>
+      <li class="menu">
+        <a href="#menu"><i class="fas fa-bars"></i></a>
+      </li>
+    </ul>
+  </nav>
+
+  <section id="menu">
+    <section>
+      <ul class="links">
+        {% for link in site.data.links %}
+        <li><a href="{{ link.href | relative_url }}"><h3>{{ link.name }}</h3></a></li>
+        {% endfor %}
+      </ul>
+    </section>
+    <section>
+      <p style="color:#bbb;font-size:0.85em;text-align:center">
+        📧 {{ site.author.email }}<br>
+        🔗 ORCID: {{ site.author.orcid }}
+      </p>
+    </section>
+  </section>
+</header>

@@ -1,0 +1,23 @@
+<section id="sidebar">
+  <section id="intro">
+    <a href="{{ '/' | relative_url }}" class="logo"><img src="{{ site.author.avatar | relative_url }}" alt="" /></a>
+    <header>
+      <h2>{{ site.author.name }}</h2>
+      <p>{{ site.author.title | default: "Assistant Professor" }} · {{ site.author.affiliation }}</p>
+    </header>
+  </section>
+  <section class="blurb">
+    <h2>About</h2>
+    <p>{{ site.description }}</p>
+    <ul class="actions">
+      <li><a href="mailto:{{ site.author.email }}" class="button">📧 Contact</a></li>
+    </ul>
+  </section>
+  <section id="footer">
+    <ul class="icons">
+      <li><a href="mailto:{{ site.author.email }}" class="fa-envelope"><span class="label">Email</span></a></li>
+      <li><a href="https://orcid.org/{{ site.author.orcid }}" class="fa-id-card"><span class="label">ORCID</span></a></li>
+    </ul>
+    <p class="copyright">&copy; {{ site.author.name }}. Design: <a href="http://html5up.net">HTML5 UP</a>. Jekyll.</p>
+  </section>
+</section>

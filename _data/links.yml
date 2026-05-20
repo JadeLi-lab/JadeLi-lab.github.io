@@ -1,0 +1,18 @@
+# Navigation links
+- name: Home
+  href: /
+
+- name: Research
+  href: /research/
+
+- name: Publications
+  href: /publications/
+
+- name: Gallery
+  href: /gallery/
+
+- name: Daily
+  href: /daily/
+
+- name: Vibe Coding
+  href: /vibecoding/

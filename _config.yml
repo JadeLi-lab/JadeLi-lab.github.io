@@ -1,0 +1,17 @@
+title: Meixuan LI | 李美璇
+description: "Assistant Professor at NUDT. Research: Large-Scale Complex Systems, CPS Resilience, UAV Swarms."
+baseurl: ""
+url: "https://jadeli-lab.github.io"
+
+author:
+  name: Meixuan LI
+  title: Assistant Professor
+  last_name: LI
+  cv: /
+  avatar: /images/avatar.jpg
+  email: limeixuan1997@outlook.com
+  orcid: 0000-0002-1569-6210
+  affiliation: National University of Defense Technology (NUDT)
+
+markdown: kramdown
+permalink: /:categories/:title.html
