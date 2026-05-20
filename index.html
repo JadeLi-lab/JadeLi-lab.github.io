@@ -1,35 +1,26 @@
 ---
 layout: home
-echarts: true
 ---
 {% assign en = site.data.i18n.en %}
 {% assign zh = site.data.i18n.zh %}
 {% assign dirKeys = "d1,d2,d3" | split: "," %}
-{% assign colors = "#4d90fe,#9b59b6,#2ecc71" | split: "," %}
 
 <!-- INTRO -->
 <article class="post">
   <header>
     <div class="title">
-      <h2>Meixuan LI</h2>
-      <p data-en="Assistant Professor · NUDT" data-zh="助理教授 · 国防科技大学">Assistant Professor · NUDT</p>
-    </div>
-    <div class="meta">
-      <a href="mailto:{{ site.author.email }}" class="author">
-        <span class="name">Meixuan LI</span>
-        <img src="{{ site.author.avatar | relative_url }}" alt="" />
-      </a>
+      <h2 style="color:#000">Meixuan LI</h2>
     </div>
   </header>
-  <p data-en="{{ en.hero.desc }}" data-zh="{{ zh.hero.desc }}">{{ en.hero.desc }}</p>
+  <p style="color:#000" data-en="{{ en.hero.desc }}" data-zh="{{ zh.hero.desc }}">{{ en.hero.desc }}</p>
 </article>
 
 <!-- RESEARCH DIRECTIONS -->
 <article class="post">
   <header>
     <div class="title">
-      <h2>🔬 <span data-en="Research Directions" data-zh="研究方向">Research Directions</span></h2>
-      <p data-en="Three interconnected research pillars" data-zh="三个相互关联的研究支柱">Three interconnected research pillars</p>
+      <h2 style="color:#000">🔬 <span data-en="Research Directions" data-zh="研究方向">Research Directions</span></h2>
+      <p style="color:#000" data-en="Three interconnected research pillars" data-zh="三个相互关联的研究支柱">Three interconnected research pillars</p>
     </div>
   </header>
 
@@ -38,121 +29,19 @@ echarts: true
     {% assign i = forloop.index0 %}
     {% assign d = en.directions[dk] %}
     {% assign dz = zh.directions[dk] %}
-    <div style="flex:1;min-width:220px;border:1px solid #ddd;border-radius:6px;padding:18px;border-top:4px solid {{ colors[i] }}">
-      <h3 style="margin:0;font-size:1.1em;color:{{ colors[i] }}" data-en="{{ d.title }}" data-zh="{{ dz.title }}">{{ d.title }}</h3>
-      <p style="font-size:0.85em;color:#666;margin:6px 0" data-en="{{ d.subtitle }}" data-zh="{{ dz.subtitle }}">{{ d.subtitle }}</p>
-      <p style="font-size:0.85em" data-en="{{ d.content | truncate: 120 }}" data-zh="{{ dz.content | truncate: 120 }}">{{ d.content | truncate: 120 }}</p>
+    <div style="flex:1;min-width:220px;border:1px solid #ccc;border-radius:6px;padding:18px;border-top:4px solid #000">
+      <h3 style="margin:0;font-size:1.1em;color:#000" data-en="{{ d.title }}" data-zh="{{ dz.title }}">{{ d.title }}</h3>
+      <p style="font-size:0.85em;color:#000;margin:6px 0" data-en="{{ d.subtitle }}" data-zh="{{ dz.subtitle }}">{{ d.subtitle }}</p>
+      <p style="font-size:0.85em;color:#000" data-en="{{ d.content | truncate: 120 }}" data-zh="{{ dz.content | truncate: 120 }}">{{ d.content | truncate: 120 }}</p>
       <div style="display:flex;flex-wrap:wrap;gap:4px;margin-top:8px">
         {% for kw in d.keywords limit:4 %}
-        <span style="font-size:0.7em;background:#f0f0f0;padding:2px 8px;border-radius:10px">{{ kw }}</span>
+        <span style="font-size:0.7em;background:#eee;color:#000;padding:2px 8px;border-radius:10px">{{ kw }}</span>
         {% endfor %}
       </div>
-      <a href="{{ '/research' | relative_url }}" style="display:inline-block;margin-top:10px;font-size:0.85em;font-weight:700;color:{{ colors[i] }}">
+      <a href="{{ '/research' | relative_url }}" style="display:inline-block;margin-top:10px;font-size:0.85em;font-weight:700;color:#000">
         <span data-en="Read more →" data-zh="了解更多 →">Read more →</span>
       </a>
     </div>
     {% endfor %}
   </div>
 </article>
-
-<!-- PAPER GRAPH -->
-<article class="post">
-  <header>
-    <div class="title">
-      <h2>📄 <span data-en="Publication Relationship Graph" data-zh="论文关联关系图谱">Publication Relationship Graph</span></h2>
-      <p data-en="Drag nodes · Scroll · Click for details" data-zh="拖拽节点 · 缩放 · 点击查看详情">Drag nodes · Scroll · Click for details</p>
-    </div>
-  </header>
-  <div id="graphChart" style="height:520px;width:100%"></div>
-  <p style="text-align:center;color:#888;font-size:0.85em;margin-top:8px">
-    <span data-en="🔵 Fundamental Problems &nbsp; 🟣 CPS Resilience &nbsp; 🟢 UAV Swarms"
-          data-zh="🔵 基础科学问题 &nbsp; 🟣 CPS韧性 &nbsp; 🟢 无人集群">🔵 Fundamental Problems &nbsp; 🟣 CPS Resilience &nbsp; 🟢 UAV Swarms</span>
-  </p>
-</article>
-
-<!-- MODAL -->
-<div id="paperModal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:1000;align-items:center;justify-content:center;padding:20px" onclick="closeModal()">
-  <div style="background:#fff;border-radius:10px;padding:36px 32px 28px;max-width:660px;max-height:85vh;overflow-y:auto;width:100%;position:relative;box-shadow:0 10px 40px rgba(0,0,0,0.15)" onclick="event.stopPropagation()">
-    <button onclick="closeModal()" style="position:absolute;top:14px;right:14px;width:34px;height:34px;border-radius:50%;border:1px solid #e2e8f0;background:#f7fafc;font-size:16px;cursor:pointer;color:#718096;line-height:1;z-index:5">✕</button>
-    <span id="modalYear" style="display:inline-block;padding:3px 12px;border-radius:10px;font-size:12px;font-weight:700;color:#fff;background:#4d90fe"></span>
-    <span id="modalJournal" style="font-size:12px;color:#888;margin-left:8px"></span>
-    <h3 id="modalTitle" style="margin-top:12px;font-size:1.15em;color:#1a202c;line-height:1.4;padding-right:30px"></h3>
-    <div style="font-size:13px;color:#888;margin-bottom:14px">DOI: <a id="modalDOI" href="#" target="_blank" rel="noopener" style="color:#3182ce"></a></div>
-    <div id="modalHighlight" style="padding:10px 14px;background:#f0fff4;border-left:3px solid #38a169;border-radius:6px;font-size:13px;color:#22543d;margin-bottom:14px;line-height:1.6"></div>
-    <div id="modalAbstract" style="font-size:14px;line-height:1.8;color:#4a5568;margin-bottom:14px"></div>
-    <div id="modalKeywords" style="margin-bottom:16px;display:flex;flex-wrap:wrap;gap:5px"></div>
-    <div style="border-top:1px solid #e2e8f0;padding-top:14px;margin-top:4px">
-      <h4 style="font-size:14px;color:#718096;margin-bottom:10px">🔗 <span data-en="Related Papers" data-zh="相关论文" id="modalRelatedLabel">Related Papers</span></h4>
-      <div id="modalRelated"></div>
-    </div>
-    <a href="{{ '/publications' | relative_url }}" style="display:inline-block;margin-top:6px;font-size:13px;color:#3182ce;font-weight:600">
-      <span data-en="View all publications →" data-zh="查看全部论文 →">View all publications →</span>
-    </a>
-  </div>
-</div>
-
-<script>
-var publications = [
-{% for pub in site.data.pubs %}{% if pub.id %}
-  {id:{{pub.id}},title:"{{pub.title|escape}}",titleCN:"{{pub.titleCN|escape}}",journal:"{{pub.journal|escape}}",year:{{pub.year}},doi:"{{pub.doi}}",
-   keywords:[{%for k in pub.keywords%}"{{k|escape}}"{%unless forloop.last%},{%endunless%}{%endfor%}],
-   keywordsCN:[{%for kc in pub.keywordsCN%}"{{kc|escape}}"{%unless forloop.last%},{%endunless%}{%endfor%}],
-   direction:{{pub.direction}},highlight:"{{pub.highlight|escape}}",highlightCN:"{{pub.highlightCN|escape}}",
-   abstract:"{{pub.abstract|escape}}",abstractCN:"{{pub.abstractCN|escape}}"}{%unless forloop.last%},{%endunless%}
-{%endif%}{%endfor%}];
-
-var paperRelations = [
-{%for rel in site.data.paper_relations%}
-  {source:{{rel.source}},target:{{rel.target}},label:"{{rel.label|escape}}",labelCN:"{{rel.labelCN|escape}}"}{%unless forloop.last%},{%endunless%}
-{%endfor%}];
-
-function getGraphOption(en) {
-  return {tooltip:{formatter:function(p){if(p.dataType==='node'){var d=p.data;return'<strong>#'+d.id+' '+(en?d.title:d.titleCN).slice(0,60)+'</strong><br/>'+d.journal+' ('+d.year+')<br/>💡'+(en?d.highlight:d.highlightCN).slice(0,100)}return''}},
-    legend:{show:false},
-    series:[{type:'graph',layout:'force',force:{repulsion:350,gravity:0.08,edgeLength:[120,280]},roam:true,draggable:true,
-      data:publications.map(function(p){return{id:p.id,name:'['+p.id+']',symbolSize:32,category:p.direction-1,label:{show:true,fontSize:11,fontWeight:700,color:'#333'},data:p}}),
-      links:paperRelations.map(function(r){return{source:r.source,target:r.target}}),
-      categories:[
-        {name:en?'Fundamental Problems':'基础科学问题',itemStyle:{color:'#4d90fe'}},
-        {name:en?'CPS Resilience':'CPS韧性',itemStyle:{color:'#9b59b6'}},
-        {name:en?'UAV Swarms':'无人集群',itemStyle:{color:'#2ecc71'}}
-      ],emphasis:{focus:'adjacency',lineStyle:{width:4}},lineStyle:{color:'#ddd',curveness:0.25,opacity:0.7}}]};
-}
-
-function renderGraph(){var d=document.getElementById('graphChart');if(!d)return;var c=echarts.init(d);c.setOption(getGraphOption(isEn));c.on('click',function(p){if(p.dataType==='node')showPaperModal(p.data.data,isEn)});d._echart=c;}
-
-function showPaperModal(p,en) {
-  document.getElementById('modalYear').textContent=p.year;
-  document.getElementById('modalJournal').textContent=p.journal;
-  document.getElementById('modalTitle').textContent=en?p.title:p.titleCN;
-  var doi=document.getElementById('modalDOI');doi.textContent=p.doi;doi.href='https://doi.org/'+p.doi;
-  document.getElementById('modalHighlight').innerHTML='<strong>💡 '+(en?'Core Highlight':'核心亮点')+'：</strong>'+(en?p.highlight:p.highlightCN);
-  document.getElementById('modalAbstract').innerHTML='<strong>'+(en?'Abstract':'摘要')+'：</strong>'+(en?p.abstract:p.abstractCN);
-  document.getElementById('modalRelatedLabel').textContent=en?'Related Papers':'相关论文';
-  var kw=document.getElementById('modalKeywords');kw.innerHTML='';
-  (en?p.keywords:p.keywordsCN).forEach(function(k){
-    var s=document.createElement('span');
-    s.style.cssText='display:inline-block;padding:3px 10px;border-radius:12px;font-size:11px;font-weight:600;background:#e8f0fe;color:#1967d2;margin:2px';
-    s.textContent=k;kw.appendChild(s);
-  });
-  // Related papers
-  var relDiv=document.getElementById('modalRelated');relDiv.innerHTML='';
-  paperRelations.filter(function(r){return r.source===p.id||r.target===p.id}).forEach(function(r){
-    var oid=r.source===p.id?r.target:r.source;
-    var o=publications.find(function(x){return x.id===oid});
-    if(!o)return;
-    var div=document.createElement('div');
-    div.style.cssText='padding:10px 14px;background:#f7fafc;border-radius:6px;margin-bottom:6px;font-size:13px;cursor:pointer;border:1px solid #e2e8f0';
-    div.innerHTML='<span style="color:#3182ce;font-weight:600">'+(en?r.label:r.labelCN)+'</span><div style="font-size:12px;color:#888;margin-top:2px">→ ['+o.id+'] '+(en?o.title:o.titleCN).slice(0,70)+'...</div>';
-    div.onclick=function(ev){ev.stopPropagation();showPaperModal(o,en);};
-    relDiv.appendChild(div);
-  });
-  document.getElementById('paperModal').style.display='flex';
-}
-
-function closeModal(){document.getElementById('paperModal').style.display='none';}
-
-function onLangChange(enVal){isEn=enVal;var d=document.getElementById('graphChart');if(d&&d._echart)d._echart.setOption(getGraphOption(enVal));}
-
-document.addEventListener('DOMContentLoaded',function(){renderGraph();});
-</script>

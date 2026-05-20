@@ -22,8 +22,8 @@ permalink: /publications/
   <button class="filter-btn" data-filter="1" onclick="setFilter(1, this)" style="padding:10px 18px;border:1px solid #ddd;border-radius:6px;background:#fff;cursor:pointer;font-size:14px">Dir 1</button>
   <button class="filter-btn" data-filter="2" onclick="setFilter(2, this)" style="padding:10px 18px;border:1px solid #ddd;border-radius:6px;background:#fff;cursor:pointer;font-size:14px">Dir 2</button>
   <button class="filter-btn" data-filter="3" onclick="setFilter(3, this)" style="padding:10px 18px;border:1px solid #ddd;border-radius:6px;background:#fff;cursor:pointer;font-size:14px">Dir 3</button>
-  <button id="viewToggleBtn" onclick="toggleView()" style="padding:10px 18px;border:1px solid #4d90fe;border-radius:6px;background:#4d90fe;color:#fff;cursor:pointer;font-size:14px"
-    data-en="View Graph" data-zh="查看关系图">View Graph</button>
+  <button id="viewToggleBtn" onclick="toggleView()" style="padding:10px 20px;border:2px dashed #888;border-radius:20px;background:#f9f9f9;color:#333;cursor:pointer;font-size:14px;font-weight:700;margin-left:auto"
+    data-en="📊 View Graph" data-zh="📊 查看关系图">📊 View Graph</button>
 </div>
 
 <!-- List View -->
