@@ -2,7 +2,7 @@
   <div style="padding:8px 0 4px">
     <h1 style="font-size:28px;line-height:1.2;margin:0"><a href="{{ '/' | relative_url }}"><span data-en="{{ site.author.name }}" data-zh="李美璇">{{ site.author.name }}</span></a></h1>
     <p style="font-size:13px;color:#9ca3af;margin:2px 0 0;font-weight:400">
-      <span data-en="Exploring the unknown 🌌" data-zh="探索未知 🌌">Exploring the unknown 🌌</span>
+      <span data-en="🚀 Welcome to my space!" data-zh="🚀 欢迎来到我的空间！">🚀 Welcome to my space!</span>
     </p>
   </div>
   <nav class="links">
@@ -10,7 +10,7 @@
       {% for link in site.data.links %}
         <li><a href="{{ link.href | relative_url }}"><span data-en="{{ link.name }}" data-zh="{{ link.name_zh }}">{{ link.name }}</span></a></li>
       {% endfor %}
-      <li><button onclick="toggleLang()" style="background:#1d4ed8;color:#fff;border:none;padding:6px 16px;border-radius:20px;cursor:pointer;font-size:13px;font-weight:700;font-family:inherit;transition:all 0.2s;box-shadow:0 2px 6px rgba(29,78,216,0.3)" id="langBtn" onmouseenter="this.style.background='#1e40af'" onmouseleave="this.style.background='#1d4ed8'">🌐 中文</button></li>
+      <li><button onclick="toggleLang()" style="background:#1d4ed8;color:#fff;border:none;padding:6px 16px;border-radius:20px;cursor:pointer;font-size:13px;font-weight:700;font-family:inherit;min-width:88px;text-align:center;white-space:nowrap;flex-shrink:0" id="langBtn" onmouseenter="this.style.background='#1e40af'" onmouseleave="this.style.background='#1d4ed8'">🌐 中文</button></li>
     </ul>
   </nav>
   <nav class="main">

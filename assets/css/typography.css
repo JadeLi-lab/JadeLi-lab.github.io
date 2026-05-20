@@ -69,8 +69,10 @@ a:hover { color: #333 !important; }
 #header .links ul li {
   border-left: 1px solid #374151 !important;
 }
-#header nav.links a { font-size: 13px !important; font-weight: 500 !important; color: #9ca3af !important; letter-spacing: 0 !important; display: inline-block !important; min-width: fit-content !important; }
+#header nav.links a { font-size: 13px !important; font-weight: 500 !important; color: #9ca3af !important; letter-spacing: 0 !important; white-space: nowrap !important; flex-shrink: 0 !important; }
 #header nav.links a:hover { color: #fff !important; font-weight: 500 !important; }
+#header .links ul { display: flex !important; align-items: center !important; gap: 0 !important; }
+#header .links ul li { flex-shrink: 0 !important; }
 #header .main ul li > a { color: #9ca3af !important; }
 #header .main ul li > a:hover { color: #fff !important; }
 
