@@ -31,7 +31,8 @@ layout: home
     {% assign dz = zh.directions[dk] %}
     {% assign tagBgs = "#e8f0fe,#f3e8ff,#e6f6ed" | split: "," %}
     {% assign tagColors = "#1a56db,#6d28d9,#176434" | split: "," %}
-    <div style="flex:1;min-width:220px;border:1px solid #ddd;border-radius:8px;padding:20px;border-top:4px solid {{ colors[i] }};border-left:4px solid {{ colors[i] }};background:#fafafa">
+    {% assign shadows = "0 4px 16px rgba(77,144,254,0.12)|0 4px 16px rgba(155,89,182,0.12)|0 4px 16px rgba(46,204,113,0.12)" | split: "|" %}
+    <div style="flex:1;min-width:220px;border:1px solid #ddd;border-radius:8px;padding:20px;border-top:4px solid {{ colors[i] }};border-left:4px solid {{ colors[i] }};background:#fafafa;box-shadow:{{ shadows[i] }}">
       <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px">
         <span style="background:{{ colors[i] }};color:#fff;width:32px;height:32px;border-radius:8px;display:inline-flex;align-items:center;justify-content:center;font-size:16px;font-weight:800;flex-shrink:0">0{{ i | plus: 1 }}</span>
         <h3 style="margin:0;font-size:1.1em;color:{{ colors[i] }}" data-en="{{ d.title }}" data-zh="{{ dz.title }}">{{ d.title }}</h3>
