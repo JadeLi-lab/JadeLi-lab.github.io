@@ -56,11 +56,45 @@ a {
 }
 a:hover { color: #333 !important; }
 
-/* Nav/Header — keep sidebar legible on dark bg */
+/* ===== TOP HEADER BAR — dark ===== */
+#header {
+  background-color: #111827 !important;
+  border-bottom: 1px solid #1f2937 !important;
+}
 #header h1 { font-size: 20px !important; font-weight: 800 !important; color: #fff !important; letter-spacing: -0.01em !important; }
 #header h1 a { color: #fff !important; border: none !important; }
-#header nav.links a { font-size: 13px !important; font-weight: 500 !important; color: #ccc !important; letter-spacing: 0 !important; }
+#header nav.links {
+  border-left: 1px solid #374151 !important;
+}
+#header .links ul li {
+  border-left: 1px solid #374151 !important;
+}
+#header nav.links a { font-size: 13px !important; font-weight: 500 !important; color: #9ca3af !important; letter-spacing: 0 !important; }
 #header nav.links a:hover { color: #fff !important; }
+#header .main ul li > a { color: #9ca3af !important; }
+#header .main ul li > a:hover { color: #fff !important; }
+
+/* Side menu (slide-out) — dark */
+#menu {
+  background: #111827 !important;
+}
+#menu section { border-top: 1px solid #1f2937 !important; }
+#menu .links a h3 { color: #e5e7eb !important; }
+#menu .links a:hover h3 { color: #fff !important; }
+
+/* ===== SIDEBAR (home page right panel) — dark ===== */
+#sidebar {
+  background: #0f172a !important;
+  color: #e5e7eb !important;
+}
+#sidebar #intro { background: #0f172a !important; }
+#sidebar #intro h2 { color: #f1f5f9 !important; }
+#sidebar #intro p { color: #94a3b8 !important; }
+#sidebar .blurb h2 { color: #e2e8f0 !important; }
+#sidebar .blurb p { color: #94a3b8 !important; }
+#sidebar #footer { background: transparent !important; }
+#sidebar #footer .copyright { color: #64748b !important; }
+#sidebar #footer .copyright a { color: #94a3b8 !important; }
 
 /* Post titles */
 .post > header .title h2 { font-size: 24px !important; font-weight: 800 !important; color: #000 !important; letter-spacing: -0.03em !important; }
@@ -70,12 +104,9 @@ a:hover { color: #333 !important; }
 .post .meta, .post .meta time, .post .meta a { font-size: 12px !important; color: #000 !important; font-weight: 500 !important; }
 .post .meta .author .name { font-weight: 600 !important; color: #000 !important; }
 
-/* Sidebar blurb */
-#sidebar h2 { font-size: 18px !important; font-weight: 700 !important; color: #fff !important; }
-#sidebar p, .blurb p { font-size: 13px !important; color: #ccc !important; line-height: 1.6 !important; }
-
-/* Footer */
+/* Footer (on content pages, not home) */
 #footer { font-size: 12px !important; color: #999 !important; }
+#footer .copyright { color: #999 !important; }
 
 /* Button */
 .button, button.button {
