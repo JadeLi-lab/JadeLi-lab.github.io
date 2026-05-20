@@ -12,7 +12,7 @@ permalink: /gallery/
 {% assign itemsEn = "UAV Swarm Experiment,Cascading Failure Simulation,IBR Grid Integration" | split: "," %}
 {% assign itemsZh = "无人机集群实验,级联故障仿真,IBR电网集成" | split: "," %}
 {% for item in itemsEn %}
-  <div style="flex:1;min-width:230px;background:#fff;border:1px solid #ddd;border-radius:8px;padding:36px 24px;text-align:center;box-shadow:0 1px 3px rgba(0,0,0,0.06)">
+  <div style="flex:1 1 0;min-width:240px;background:#fff;border:1px solid #ddd;border-radius:8px;padding:36px 24px;text-align:center;box-shadow:0 1px 3px rgba(0,0,0,0.06)">
     <div style="font-size:44px;margin-bottom:14px">📹</div>
     <h3 style="font-size:16px;color:#000;margin-bottom:8px" data-en="{{ item }}" data-zh="{{ itemsZh[forloop.index0] }}">{{ item }}</h3>
     <p style="font-size:13px;color:#888" data-en="Video / Demo coming soon" data-zh="视频/演示即将上线">Video / Demo coming soon</p>

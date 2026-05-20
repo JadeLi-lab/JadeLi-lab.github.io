@@ -12,7 +12,7 @@ permalink: /daily/
 {% for i in (0..2) %}
 {% assign cardEn = en.daily.cards[i] %}
 {% assign cardZh = zh.daily.cards[i] %}
-  <div style="flex:1;min-width:230px;background:#fff;border:1px solid #ddd;border-radius:8px;padding:36px 24px;text-align:center;box-shadow:0 1px 3px rgba(0,0,0,0.06)">
+  <div style="flex:1 1 0;min-width:240px;background:#fff;border:1px solid #ddd;border-radius:8px;padding:36px 24px;text-align:center;box-shadow:0 1px 3px rgba(0,0,0,0.06)">
     <div style="font-size:40px;margin-bottom:14px">{{ cardEn.icon }}</div>
     <h3 style="font-size:16px;color:#000;margin-bottom:8px" data-en="{{ cardEn.title }}" data-zh="{{ cardZh.title }}">{{ cardEn.title }}</h3>
     <p style="font-size:13px;color:#888" data-en="Coming soon" data-zh="即将更新">Coming soon</p>
