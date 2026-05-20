@@ -86,6 +86,7 @@ a:hover { color: #333 !important; }
 #sidebar {
   background: #0f172a !important;
   color: #e5e7eb !important;
+  padding: 32px 28px !important;
 }
 #sidebar #intro { background: #0f172a !important; }
 #sidebar #intro h2 { color: #f1f5f9 !important; }
