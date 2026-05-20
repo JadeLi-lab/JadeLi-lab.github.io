@@ -29,7 +29,7 @@ permalink: /research/
 </div>
 
 <div style="background:#fffef0;border:1px solid #e6d88a;border-left:4px solid #d69e2e;border-radius:6px;padding:20px;margin:16px 0">
-  <h3 style="color:#d69e2e">💡 <span data-en="Core Innovation" data-zh="核心创新点">Core Innovation</span></h3>
+  <h3 style="color:#d69e2e">💡 <span data-en="Contribution" data-zh="主要贡献">Contribution</span></h3>
   <p style="line-height:1.9;color:#744210" data-en="{{ d.innovation }}" data-zh="{{ dz.innovation }}">{{ d.innovation }}</p>
 </div>
 

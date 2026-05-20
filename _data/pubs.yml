@@ -129,8 +129,8 @@
     - 电力网络
     - 稳定性
   direction: 2
-  highlight: Pioneering study revealing the dual-edge effect of IBRs on grid cascading failures — higher penetration can either mitigate or amplify cascading risk depending on IBR spatial distribution and control parameters.
-  highlightCN: 开创性研究揭示IBR对电网级联故障的双刃效应 — 高渗透率可能缓解或放大级联风险，取决于IBR空间分布和控制参数。
+  highlight: Pioneering study revealing the dual-edge effect of IBRs on grid cascading failures, higher penetration can either mitigate or amplify cascading risk depending on IBR spatial distribution and control parameters.
+  highlightCN: 开创性研究揭示IBR对电网级联故障的双刃效应, 高渗透率可能缓解或放大级联风险，取决于IBR空间分布和控制参数。
   abstract: This paper systematically analyzes how inverter-based resources (IBRs) influence cascading failure dynamics in power systems. Through extensive simulations on IEEE test systems, we demonstrate that IBR penetration level, spatial distribution, and control mode critically determine whether IBRs mitigate or exacerbate cascading failures.
   abstractCN: 系统分析逆变器资源如何影响电力系统级联故障动力学。通过IEEE标准系统的广泛仿真，论证IBR渗透水平、空间分布和控制模式如何决定其缓解或加剧级联故障的效果。
 
@@ -151,8 +151,8 @@
     - 电力网络
     - 电网稳定性
   direction: 2
-  highlight: First systematic optimization framework for IBR placement considering cascading failure resilience. Identifies counter-intuitive results — the best locations for normal-operation efficiency may be the worst for failure resilience.
-  highlightCN: 首个考虑级联故障韧性的IBR配置系统优化框架。得出反直觉结论 — 正常运行效率最佳的位置可能是故障韧性最差的位置。
+  highlight: First systematic optimization framework for IBR placement considering cascading failure resilience. Identifies counter-intuitive results, the best locations for normal-operation efficiency may be the worst for failure resilience.
+  highlightCN: 首个考虑级联故障韧性的IBR配置系统优化框架。得出反直觉结论, 正常运行效率最佳的位置可能是故障韧性最差的位置。
   abstract: We address the critical question of optimal IBR placement in power networks. Formulating it as a multi-objective optimization problem balancing efficiency and resilience, we reveal fundamental trade-offs and provide design guidelines for integrating renewables without compromising grid robustness.
   abstractCN: 解决电网中IBR最优配置的关键问题。将其建模为平衡效率与韧性的多目标优化问题，揭示基本权衡关系，提供不损害电网鲁棒性的可再生能源集成设计指南。
 
@@ -195,8 +195,8 @@
     - 电网设计
     - 复杂网络
   direction: 2
-  highlight: Comprehensive case study providing actionable design principles for robust power grid topology. Challenges conventional wisdom — meshed networks are not always more robust; identifies specific topological features that dominate robustness.
-  highlightCN: 全面案例研究为鲁棒电网拓扑提供可操作设计原则。挑战传统认知 — 网状网络并非总是更鲁棒；识别出主导鲁棒性的特定拓扑特征。
+  highlight: Comprehensive case study providing actionable design principles for robust power grid topology. Challenges conventional wisdom, meshed networks are not always more robust; identifies specific topological features that dominate robustness.
+  highlightCN: 全面案例研究为鲁棒电网拓扑提供可操作设计原则。挑战传统认知, 网状网络并非总是更鲁棒；识别出主导鲁棒性的特定拓扑特征。
   abstract: Through systematic comparison of different power network topologies under various failure scenarios, we identify which topological features most strongly determine grid robustness. Our case study provides concrete design recommendations for building inherently robust power networks.
   abstractCN: 通过不同故障场景下电网拓扑的系统比较，识别哪些拓扑特征最强地决定电网鲁棒性。为构建本质鲁棒的电力网络提供具体设计建议。
 
@@ -239,8 +239,8 @@
     - 传播
     - 电力系统
   direction: 1
-  highlight: Establishes a unified propagation-to-mitigation framework. Proposes three complementary mitigation strategies — topological, operational, and protective — and demonstrates their synergistic benefits when combined.
-  highlightCN: 建立传播到缓解的统一框架。提出三种互补缓解策略 — 拓扑、运行和保护 — 并证明三者协同配合时的收益。
+  highlight: Establishes a unified propagation-to-mitigation framework. Proposes three complementary mitigation strategies, topological, operational, and protective, and demonstrates their synergistic benefits when combined.
+  highlightCN: 建立传播到缓解的统一框架。提出三种互补缓解策略, 拓扑、运行和保护, 并证明三者协同配合时的收益。
   abstract: This paper comprehensively examines cascading failure propagation mechanisms and proposes integrated mitigation strategies. We categorize mitigation approaches into topological, operational, and protective layers, and show that coordinated multi-layer strategies significantly outperform any single approach.
   abstractCN: 全面审视级联故障传播机制并提出集成缓解策略。将缓解方法分为拓扑层、运行层和保护层，证明多层协调策略显著优于单一方法。
 
