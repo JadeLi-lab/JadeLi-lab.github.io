@@ -104,8 +104,8 @@ body.single #header { background-color: #111827 !important; }
 #sidebar #footer .copyright { color: #64748b !important; }
 #sidebar #footer .copyright a { color: #94a3b8 !important; }
 
-/* Consistent page layout */
-#main .post { max-width: 100% !important; overflow: hidden !important; }
+/* Consistent page layout — all sub-pages identical sizing */
+#main .post { max-width: 860px !important; width: 100% !important; overflow: hidden !important; margin: 0 auto !important; }
 
 /* Post titles */
 .post > header .title h2 { font-size: 24px !important; font-weight: 800 !important; color: #000 !important; letter-spacing: -0.03em !important; }
