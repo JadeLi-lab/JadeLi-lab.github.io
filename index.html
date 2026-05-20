@@ -5,22 +5,23 @@ echarts: true
 {% assign en = site.data.i18n.en %}
 {% assign zh = site.data.i18n.zh %}
 {% assign dirKeys = "d1,d2,d3" | split: "," %}
+{% assign colors = "#4d90fe,#9b59b6,#2ecc71" | split: "," %}
 
-<!-- INTRO POST -->
+<!-- INTRO -->
 <article class="post">
   <header>
     <div class="title">
-      <h2>{{ site.author.name }}</h2>
-      <p>Assistant Professor · National University of Defense Technology (NUDT)</p>
+      <h2>Meixuan LI</h2>
+      <p data-en="Assistant Professor · NUDT" data-zh="助理教授 · 国防科技大学">Assistant Professor · NUDT</p>
     </div>
     <div class="meta">
       <a href="mailto:{{ site.author.email }}" class="author">
-        <span class="name">{{ site.author.name }}</span>
+        <span class="name">Meixuan LI</span>
         <img src="{{ site.author.avatar | relative_url }}" alt="" />
       </a>
     </div>
   </header>
-  <p>{{ en.hero.desc }}</p>
+  <p data-en="{{ en.hero.desc }}" data-zh="{{ zh.hero.desc }}">{{ en.hero.desc }}</p>
   <footer>
     <ul class="stats">
       <li><a href="mailto:{{ site.author.email }}" class="icon">📧 {{ site.author.email }}</a></li>
@@ -33,8 +34,8 @@ echarts: true
 <article class="post">
   <header>
     <div class="title">
-      <h2>🔬 Research Directions</h2>
-      <p>Three interconnected research pillars</p>
+      <h2>🔬 <span data-en="Research Directions" data-zh="研究方向">Research Directions</span></h2>
+      <p data-en="Three interconnected research pillars" data-zh="三个相互关联的研究支柱">Three interconnected research pillars</p>
     </div>
   </header>
 
@@ -43,17 +44,18 @@ echarts: true
     {% assign i = forloop.index0 %}
     {% assign d = en.directions[dk] %}
     {% assign dz = zh.directions[dk] %}
-    {% assign colors = "#4d90fe,#9b59b6,#2ecc71" | split: "," %}
     <div style="flex:1;min-width:220px;border:1px solid #ddd;border-radius:6px;padding:18px;border-top:4px solid {{ colors[i] }}">
-      <h3 style="margin:0;font-size:1.1em;color:{{ colors[i] }}">{{ d.title }}</h3>
-      <p style="font-size:0.85em;color:#666;margin:6px 0">{{ d.subtitle }}</p>
-      <p style="font-size:0.85em">{{ d.content | truncate: 120 }}</p>
+      <h3 style="margin:0;font-size:1.1em;color:{{ colors[i] }}" data-en="{{ d.title }}" data-zh="{{ dz.title }}">{{ d.title }}</h3>
+      <p style="font-size:0.85em;color:#666;margin:6px 0" data-en="{{ d.subtitle }}" data-zh="{{ dz.subtitle }}">{{ d.subtitle }}</p>
+      <p style="font-size:0.85em" data-en="{{ d.content | truncate: 120 }}" data-zh="{{ dz.content | truncate: 120 }}">{{ d.content | truncate: 120 }}</p>
       <div style="display:flex;flex-wrap:wrap;gap:4px;margin-top:8px">
         {% for kw in d.keywords limit:4 %}
         <span style="font-size:0.7em;background:#f0f0f0;padding:2px 8px;border-radius:10px">{{ kw }}</span>
         {% endfor %}
       </div>
-      <a href="{{ '/research' | relative_url }}" style="display:inline-block;margin-top:10px;font-size:0.85em;font-weight:700;color:{{ colors[i] }}">Read more →</a>
+      <a href="{{ '/research' | relative_url }}" style="display:inline-block;margin-top:10px;font-size:0.85em;font-weight:700;color:{{ colors[i] }}">
+        <span data-en="Read more →" data-zh="了解更多 →">Read more →</span>
+      </a>
     </div>
     {% endfor %}
   </div>
@@ -63,19 +65,21 @@ echarts: true
 <article class="post">
   <header>
     <div class="title">
-      <h2>📄 Publication Relationship Graph</h2>
-      <p>Drag nodes · Scroll to zoom · Click a node for details</p>
+      <h2>📄 <span data-en="Publication Relationship Graph" data-zh="论文关联关系图谱">Publication Relationship Graph</span></h2>
+      <p data-en="Drag nodes · Scroll · Click for details" data-zh="拖拽节点 · 缩放 · 点击查看详情">Drag nodes · Scroll · Click for details</p>
     </div>
   </header>
   <div id="graphChart" style="height:520px;width:100%"></div>
-  <p style="text-align:center;color:#888;font-size:0.85em;margin-top:8px">
-    🔵 Fundamental Problems &nbsp; 🟣 CPS Resilience &nbsp; 🟢 UAV Swarms
+  <p style="text-align:center;color:#888;font-size:0.85em;margin-top:8px"
+     data-en="🔵 Fundamental Problems &nbsp; 🟣 CPS Resilience &nbsp; 🟢 UAV Swarms"
+     data-zh="🔵 基础科学问题 &nbsp; 🟣 CPS韧性 &nbsp; 🟢 无人集群">
+     🔵 Fundamental Problems &nbsp; 🟣 CPS Resilience &nbsp; 🟢 UAV Swarms
   </p>
 </article>
 
 <!-- MODAL -->
-<div class="modal-overlay" id="paperModal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:1000;align-items:center;justify-content:center" onclick="closeModal()">
-  <div style="background:#fff;border-radius:8px;padding:32px;max-width:640px;max-height:80vh;overflow-y:auto;width:90%;position:relative;box-shadow:0 10px 40px rgba(0,0,0,0.2)" onclick="event.stopPropagation()">
+<div id="paperModal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:1000;align-items:center;justify-content:center" onclick="closeModal()">
+  <div style="background:#fff;border-radius:8px;padding:32px;max-width:640px;max-height:80vh;overflow-y:auto;width:90%;position:relative" onclick="event.stopPropagation()">
     <button onclick="closeModal()" style="position:absolute;top:12px;right:12px;width:32px;height:32px;border-radius:50%;border:1px solid #ddd;background:#fff;font-size:16px;cursor:pointer">✕</button>
     <span id="modalYear" style="display:inline-block;padding:3px 12px;border-radius:10px;font-size:12px;font-weight:700;color:#fff;background:#4d90fe"></span>
     <span id="modalJournal" style="font-size:12px;color:#888;margin-left:8px"></span>
@@ -90,99 +94,62 @@ echarts: true
 <script>
 var publications = [
 {% for pub in site.data.pubs %}{% if pub.id %}
-  {
-    id: {{ pub.id }},
-    title: "{{ pub.title | escape }}",
-    titleCN: "{{ pub.titleCN | escape }}",
-    journal: "{{ pub.journal | escape }}",
-    year: {{ pub.year }},
-    doi: "{{ pub.doi }}",
-    keywords: [{% for k in pub.keywords %}"{{ k | escape }}"{% unless forloop.last %},{% endunless %}{% endfor %}],
-    keywordsCN: [{% for kc in pub.keywordsCN %}"{{ kc | escape }}"{% unless forloop.last %},{% endunless %}{% endfor %}],
-    direction: {{ pub.direction }},
-    highlight: "{{ pub.highlight | escape }}",
-    highlightCN: "{{ pub.highlightCN | escape }}",
-    abstract: "{{ pub.abstract | escape }}",
-    abstractCN: "{{ pub.abstractCN | escape }}"
-  }{% unless forloop.last %},{% endunless %}
-{% endif %}{% endfor %}
-];
+  {id:{{pub.id}},title:"{{pub.title|escape}}",titleCN:"{{pub.titleCN|escape}}",journal:"{{pub.journal|escape}}",year:{{pub.year}},doi:"{{pub.doi}}",
+   keywords:[{%for k in pub.keywords%}"{{k|escape}}"{%unless forloop.last%},{%endunless%}{%endfor%}],
+   keywordsCN:[{%for kc in pub.keywordsCN%}"{{kc|escape}}"{%unless forloop.last%},{%endunless%}{%endfor%}],
+   direction:{{pub.direction}},highlight:"{{pub.highlight|escape}}",highlightCN:"{{pub.highlightCN|escape}}",
+   abstract:"{{pub.abstract|escape}}",abstractCN:"{{pub.abstractCN|escape}}"}{%unless forloop.last%},{%endunless%}
+{%endif%}{%endfor%}];
 
 var paperRelations = [
-{% for rel in site.data.paper_relations %}
-  { source: {{ rel.source }}, target: {{ rel.target }}, label: "{{ rel.label | escape }}", labelCN: "{{ rel.labelCN | escape }}" }{% unless forloop.last %},{% endunless %}
-{% endfor %}
-];
+{%for rel in site.data.paper_relations%}
+  {source:{{rel.source}},target:{{rel.target}},label:"{{rel.label|escape}}",labelCN:"{{rel.labelCN|escape}}"}{%unless forloop.last%},{%endunless%}
+{%endfor%}];
 
-function getGraphOption(isEnVal) {
+function getGraphOption(en) {
   return {
-    tooltip: {
-      formatter: function(params) {
-        if (params.dataType === 'node') {
-          var p = params.data;
-          return '<strong>#' + p.id + ' ' + (isEnVal ? p.title : p.titleCN).slice(0, 60) + '</strong><br/>' +
-            p.journal + ' (' + p.year + ')<br/>💡' + (isEnVal ? p.highlight : p.highlightCN).slice(0, 100);
-        }
-        return '';
-      }
-    },
-    legend: {
-      data: isEnVal ? ['Fundamental Problems', 'CPS Resilience', 'UAV Swarms'] : ['基础科学问题', 'CPS韧性', '无人集群'],
-      bottom: 0,
-      textStyle: { color: '#888', fontSize: 12 }
-    },
-    series: [{
-      type: 'graph', layout: 'force',
-      force: { repulsion: 350, gravity: 0.08, edgeLength: [120, 280] },
-      roam: true, draggable: true,
-      data: publications.map(function(p) {
-        return {
-          id: p.id, name: '[' + p.id + ']', symbolSize: 32,
-          category: p.direction - 1,
-          label: { show: true, fontSize: 11, fontWeight: 700, color: '#333' },
-          data: p
-        };
-      }),
-      links: paperRelations.map(function(r) { return { source: r.source, target: r.target }; }),
-      categories: [
-        { name: isEnVal ? 'Fundamental Problems' : '基础科学问题', itemStyle: { color: '#4d90fe' } },
-        { name: isEnVal ? 'CPS Resilience' : 'CPS韧性', itemStyle: { color: '#9b59b6' } },
-        { name: isEnVal ? 'UAV Swarms' : '无人集群', itemStyle: { color: '#2ecc71' } }
-      ],
-      emphasis: { focus: 'adjacency', lineStyle: { width: 4 } },
-      lineStyle: { color: '#ddd', curveness: 0.25, opacity: 0.7 }
-    }]
-  };
+    tooltip:{formatter:function(p){if(p.dataType==='node'){var d=p.data;return'<strong>#'+d.id+' '+(en?d.title:d.titleCN).slice(0,60)+'</strong><br/>'+d.journal+' ('+d.year+')<br/>💡'+(en?d.highlight:d.highlightCN).slice(0,100)}return''}},
+    legend:{data:en?['Fundamental Problems','CPS Resilience','UAV Swarms']:['基础科学问题','CPS韧性','无人集群'],bottom:0,textStyle:{color:'#888',fontSize:12}},
+    series:[{type:'graph',layout:'force',force:{repulsion:350,gravity:0.08,edgeLength:[120,280]},roam:true,draggable:true,
+      data:publications.map(function(p){return{id:p.id,name:'['+p.id+']',symbolSize:32,category:p.direction-1,label:{show:true,fontSize:11,fontWeight:700,color:'#333'},data:p}}),
+      links:paperRelations.map(function(r){return{source:r.source,target:r.target}}),
+      categories:[
+        {name:en?'Fundamental Problems':'基础科学问题',itemStyle:{color:'#4d90fe'}},
+        {name:en?'CPS Resilience':'CPS韧性',itemStyle:{color:'#9b59b6'}},
+        {name:en?'UAV Swarms':'无人集群',itemStyle:{color:'#2ecc71'}}
+      ],emphasis:{focus:'adjacency',lineStyle:{width:4}},lineStyle:{color:'#ddd',curveness:0.25,opacity:0.7}}]};
 }
 
 function renderGraph() {
-  var dom = document.getElementById('graphChart');
-  if (!dom) return;
-  var chart = echarts.init(dom);
-  chart.setOption(getGraphOption(true));
-  chart.on('click', function(params) {
-    if (params.dataType === 'node') showPaperModal(params.data.data, true);
-  });
-  dom._echart = chart;
+  var d=document.getElementById('graphChart'); if(!d)return;
+  var c=echarts.init(d); c.setOption(getGraphOption(isEn));
+  c.on('click',function(p){if(p.dataType==='node')showPaperModal(p.data.data,isEn)});
+  d._echart=c;
 }
 
-function showPaperModal(p, isEnVal) {
-  document.getElementById('modalYear').textContent = p.year;
-  document.getElementById('modalJournal').textContent = p.journal;
-  document.getElementById('modalTitle').textContent = isEnVal ? p.title : p.titleCN;
-  var d = document.getElementById('modalDOI'); d.textContent = p.doi; d.href = 'https://doi.org/' + p.doi;
-  document.getElementById('modalHighlight').innerHTML = '<strong>💡 ' + (isEnVal ? 'Core Highlight' : '核心亮点') + '：</strong>' + (isEnVal ? p.highlight : p.highlightCN);
-  document.getElementById('modalAbstract').innerHTML = '<strong>' + (isEnVal ? 'Abstract' : '摘要') + '：</strong>' + (isEnVal ? p.abstract : p.abstractCN);
-  var kw = document.getElementById('modalKeywords'); kw.innerHTML = '';
-  (isEnVal ? p.keywords : p.keywordsCN).forEach(function(k) {
-    var s = document.createElement('span');
-    s.style.cssText = 'display:inline-block;padding:3px 10px;border-radius:12px;font-size:11px;font-weight:600;background:#e8f0fe;color:#1967d2;margin:2px';
-    s.textContent = k; kw.appendChild(s);
+function showPaperModal(p,en) {
+  document.getElementById('modalYear').textContent=p.year;
+  document.getElementById('modalJournal').textContent=p.journal;
+  document.getElementById('modalTitle').textContent=en?p.title:p.titleCN;
+  var doi=document.getElementById('modalDOI');doi.textContent=p.doi;doi.href='https://doi.org/'+p.doi;
+  document.getElementById('modalHighlight').innerHTML='<strong>💡 '+(en?'Core Highlight':'核心亮点')+'：</strong>'+(en?p.highlight:p.highlightCN);
+  document.getElementById('modalAbstract').innerHTML='<strong>'+(en?'Abstract':'摘要')+'：</strong>'+(en?p.abstract:p.abstractCN);
+  var kw=document.getElementById('modalKeywords');kw.innerHTML='';
+  (en?p.keywords:p.keywordsCN).forEach(function(k){
+    var s=document.createElement('span');
+    s.style.cssText='display:inline-block;padding:3px 10px;border-radius:12px;font-size:11px;font-weight:600;background:#e8f0fe;color:#1967d2;margin:2px';
+    s.textContent=k;kw.appendChild(s);
   });
-  document.getElementById('paperModal').style.display = 'flex';
+  document.getElementById('paperModal').style.display='flex';
 }
 
-function closeModal() { document.getElementById('paperModal').style.display = 'none'; }
+function closeModal(){document.getElementById('paperModal').style.display='none';}
 
-document.addEventListener('DOMContentLoaded', function() { renderGraph(); });
+function onLangChange(enVal) {
+  isEn=enVal;
+  var d=document.getElementById('graphChart');
+  if(d&&d._echart)d._echart.setOption(getGraphOption(enVal));
+}
+
+document.addEventListener('DOMContentLoaded',function(){renderGraph();});
 </script>

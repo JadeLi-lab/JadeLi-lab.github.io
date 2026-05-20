@@ -28,5 +28,31 @@
   <script src="{{ '/assets/js/skel.min.js' | relative_url }}"></script>
   <script src="{{ '/assets/js/util.js' | relative_url }}"></script>
   <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
+
+  <script>
+  var isEn = true;
+  function toggleLang() {
+    isEn = !isEn;
+    document.querySelectorAll('[data-en][data-zh]').forEach(function(el) {
+      el.textContent = isEn ? el.getAttribute('data-en') : el.getAttribute('data-zh');
+    });
+    document.querySelectorAll('[data-en-placeholder][data-zh-placeholder]').forEach(function(el) {
+      el.placeholder = isEn ? el.getAttribute('data-en-placeholder') : el.getAttribute('data-zh-placeholder');
+    });
+    var btns = document.querySelectorAll('#langBtn, #langBtn2');
+    btns.forEach(function(b) { b.textContent = isEn ? '中文' : 'English'; });
+    if (typeof onLangChange === 'function') onLangChange(isEn);
+  }
+  // Highlight current nav
+  (function() {
+    var path = window.location.pathname.replace(/\/$/, '') || '/';
+    document.querySelectorAll('.header-nav a, nav.links a, #menu a').forEach(function(a) {
+      var href = a.getAttribute('href');
+      if (href && (href === path || (path !== '/' && href !== '/' && path.startsWith(href)))) {
+        a.style.color = '#fff'; a.style.fontWeight = 'bold';
+      }
+    });
+  })();
+  </script>
 </body>
 </html>

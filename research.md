@@ -1,5 +1,7 @@
 ---
 layout: page
+title_en: "🔬 Research Directions"
+title_zh: "🔬 研究方向"
 title: "🔬 Research Directions"
 permalink: /research/
 ---
@@ -17,27 +19,27 @@ permalink: /research/
 
 <h2 style="color:{{ colors[i] }};border-bottom:3px solid {{ colors[i] }};padding-bottom:8px;margin-top:32px">
   <span style="background:{{ colors[i] }};color:#fff;padding:6px 14px;border-radius:6px;margin-right:12px">{{ dirNum }}</span>
-  {{ d.title }}
+  <span data-en="{{ d.title }}" data-zh="{{ dz.title }}">{{ d.title }}</span>
 </h2>
-<p style="color:#666;font-weight:600">{{ d.subtitle }}</p>
+<p style="color:#666;font-weight:600" data-en="{{ d.subtitle }}" data-zh="{{ dz.subtitle }}">{{ d.subtitle }}</p>
 
 <div style="background:#fff;border:1px solid #ddd;border-radius:6px;padding:20px;margin:16px 0">
-  <h3>📋 Research Content</h3>
-  <p style="line-height:1.9;color:#555">{{ d.content }}</p>
+  <h3>📋 <span data-en="Research Content" data-zh="研究内容">Research Content</span></h3>
+  <p style="line-height:1.9;color:#555" data-en="{{ d.content }}" data-zh="{{ dz.content }}">{{ d.content }}</p>
 </div>
 
 <div style="background:#fffef0;border:1px solid #e6d88a;border-left:4px solid #d69e2e;border-radius:6px;padding:20px;margin:16px 0">
-  <h3 style="color:#d69e2e">💡 Core Innovation</h3>
-  <p style="line-height:1.9;color:#744210">{{ d.innovation }}</p>
+  <h3 style="color:#d69e2e">💡 <span data-en="Core Innovation" data-zh="核心创新点">Core Innovation</span></h3>
+  <p style="line-height:1.9;color:#744210" data-en="{{ d.innovation }}" data-zh="{{ dz.innovation }}">{{ d.innovation }}</p>
 </div>
 
 <div style="background:#fff;border:1px solid #ddd;border-radius:6px;padding:20px;margin:16px 0">
-  <h3 style="color:#2ecc71">📄 Related Publications ({{ dirPubs | size }})</h3>
+  <h3 style="color:#2ecc71">📄 <span data-en="Related Publications" data-zh="相关论文">Related Publications</span> ({{ dirPubs | size }})</h3>
   {% for pub in dirPubs %}
   <div style="padding:12px 0;border-bottom:1px solid #eee;display:flex;gap:14px;align-items:flex-start">
     <span style="background:{{ colors[i] }};color:#fff;border-radius:6px;padding:3px 10px;font-size:12px;font-weight:700;flex-shrink:0;margin-top:3px">{{ pub.year }}</span>
     <div>
-      <div style="font-weight:700;font-size:15px">{{ pub.title }}</div>
+      <div style="font-weight:700;font-size:15px" data-en="{{ pub.title }}" data-zh="{{ pub.titleCN }}">{{ pub.title }}</div>
       <div style="font-size:12px;color:#888">{{ pub.journal }} · DOI: {{ pub.doi }}</div>
     </div>
   </div>

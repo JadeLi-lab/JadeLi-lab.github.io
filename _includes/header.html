@@ -1,11 +1,14 @@
 <header id="header">
-  <h1><a href="{{ '/' | relative_url }}">{{ site.author.name }}</a></h1>
-  <p style="font-size:0.8em;color:#bbb;margin-top:-8px">{{ site.author.affiliation }}</p>
+  <h1><a href="{{ '/' | relative_url }}"><span data-en="{{ site.author.name }}" data-zh="李美璇">{{ site.author.name }}</span></a></h1>
+  <p style="font-size:0.8em;color:#bbb;margin-top:-8px">
+    <span data-en="{{ site.author.title }} · {{ site.author.affiliation }}" data-zh="助理教授 · 国防科技大学">{{ site.author.title }} · {{ site.author.affiliation }}</span>
+  </p>
   <nav class="links">
     <ul>
       {% for link in site.data.links %}
-        <li><a href="{{ link.href | relative_url }}">{{ link.name }}</a></li>
+        <li><a href="{{ link.href | relative_url }}"><span data-en="{{ link.name }}" data-zh="{{ link.name_zh }}">{{ link.name }}</span></a></li>
       {% endfor %}
+      <li><button onclick="toggleLang()" style="background:none;border:1px solid #888;color:#bbb;padding:4px 12px;border-radius:4px;cursor:pointer;font-size:12px;font-family:inherit" id="langBtn">中文</button></li>
     </ul>
   </nav>
   <nav class="main">
@@ -20,7 +23,7 @@
     <section>
       <ul class="links">
         {% for link in site.data.links %}
-        <li><a href="{{ link.href | relative_url }}"><h3>{{ link.name }}</h3></a></li>
+        <li><a href="{{ link.href | relative_url }}"><h3><span data-en="{{ link.name }}" data-zh="{{ link.name_zh }}">{{ link.name }}</span></h3></a></li>
         {% endfor %}
       </ul>
     </section>
@@ -28,6 +31,9 @@
       <p style="color:#bbb;font-size:0.85em;text-align:center">
         📧 {{ site.author.email }}<br>
         🔗 ORCID: {{ site.author.orcid }}
+      </p>
+      <p style="text-align:center;margin-top:10px">
+        <button onclick="toggleLang()" style="background:#333;color:#fff;border:1px solid #555;padding:6px 16px;border-radius:4px;cursor:pointer;font-family:inherit" id="langBtn2">中文</button>
       </p>
     </section>
   </section>

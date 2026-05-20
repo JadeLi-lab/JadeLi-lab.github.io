@@ -3,13 +3,15 @@ layout: page
 title: "🌐 Vibe Coding Works"
 permalink: /vibecoding/
 ---
+{% assign en = site.data.i18n.en %}
+{% assign zh = site.data.i18n.zh %}
+{% assign vEn = en.vibecoding %}
+{% assign vZh = zh.vibecoding %}
 
-<a href="https://ai-giants-map.vercel.app" target="_blank" rel="noopener" style="display:block;text-decoration:none;color:inherit;background:#fff;border:1px solid #ddd;border-radius:8px;overflow:hidden;transition:all 0.3s" onmouseenter="this.style.boxShadow='0 8px 30px rgba(0,0,0,0.12)'" onmouseleave="this.style.boxShadow='none'">
+<a href="{{ vEn.aiMapLink }}" target="_blank" rel="noopener" style="display:block;text-decoration:none;color:inherit;background:#fff;border:1px solid #ddd;border-radius:8px;overflow:hidden;transition:all 0.3s" onmouseenter="this.style.boxShadow='0 8px 30px rgba(0,0,0,0.12)'" onmouseleave="this.style.boxShadow='none'">
 
-  <!-- Thumbnail -->
   <div style="background:linear-gradient(135deg,#0a0e17 0%,#111827 40%,#1a1040 70%,#0c0e1a 100%);padding:40px 32px;position:relative;min-height:260px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid #1e293b">
 
-    <!-- Nodes -->
     <div style="position:absolute;top:30px;left:40px;width:56px;height:56px;border-radius:50%;background:radial-gradient(circle,#10a37f,#10a37f44);opacity:0.8"></div>
     <div style="position:absolute;top:70px;left:170px;width:46px;height:46px;border-radius:50%;background:radial-gradient(circle,#d97706,#d9770644);opacity:0.8"></div>
     <div style="position:absolute;top:45px;right:110px;width:50px;height:50px;border-radius:50%;background:radial-gradient(circle,#4285f4,#4285f444);opacity:0.8"></div>
@@ -30,24 +32,20 @@ permalink: /vibecoding/
 
     <div style="position:relative;z-index:2;text-align:center;background:rgba(10,14,23,0.85);border-radius:16px;padding:24px 36px;backdrop-filter:blur(8px)">
       <div style="font-size:44px;margin-bottom:6px">🕸️</div>
-      <h2 style="font-size:26px;font-weight:900;color:#fff;margin:0">AI Giants Map</h2>
-      <p style="font-size:14px;color:#22d3ee;font-weight:500;margin:4px 0 0">AI Industry Landscape · 2025-2026</p>
+      <h2 style="font-size:26px;font-weight:900;color:#fff;margin:0" data-en="{{ vEn.aiMapTitle }}" data-zh="{{ vZh.aiMapTitle }}">{{ vEn.aiMapTitle }}</h2>
+      <p style="font-size:14px;color:#22d3ee;font-weight:500;margin:4px 0 0" data-en="{{ vEn.aiMapSub }}" data-zh="{{ vZh.aiMapSub }}">{{ vEn.aiMapSub }}</p>
     </div>
   </div>
 
-  <!-- Description -->
   <div style="padding:24px 28px">
-    <p style="font-size:14px;color:#555;line-height:1.7;margin-bottom:14px">
-      A comprehensive interactive map of 9 AI industry giants — OpenAI, Anthropic, Google DeepMind, Microsoft, Amazon, NVIDIA, Meta, Apple, and SpaceXAI. Features interactive force-directed network graph, key event timeline, company profiles, investment flow Sankey diagram, and 6-dimensional competitive radar analysis.
-    </p>
+    <p style="font-size:14px;color:#555;line-height:1.7;margin-bottom:14px" data-en="{{ vEn.aiMapDesc }}" data-zh="{{ vZh.aiMapDesc }}">{{ vEn.aiMapDesc }}</p>
     <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px">
-      {% assign tags = "React,TypeScript,ECharts,Vite,Vercel" | split: "," %}
-      {% for tag in tags %}
+      {% for tag in vEn.techTags %}
       <span style="font-size:12px;background:#e8f0fe;color:#1967d2;padding:4px 10px;border-radius:10px;font-weight:600">{{ tag }}</span>
       {% endfor %}
     </div>
     <div style="display:inline-flex;align-items:center;gap:8px;color:#4d90fe;font-weight:700;font-size:14px;padding:10px 20px;background:#e8f0fe;border-radius:6px">
-      🔗 Visit ai-giants-map.vercel.app
+      <span data-en="{{ vEn.aiMapCTAText }}" data-zh="{{ vZh.aiMapCTAText }}">{{ vEn.aiMapCTAText }}</span>
     </div>
   </div>
 </a>
