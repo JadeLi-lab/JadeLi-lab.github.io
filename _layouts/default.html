@@ -2,11 +2,7 @@
 <html lang="en">
   {% include head.html %}
 
-  {% if page.layout == 'home' %}
-    <body>
-  {% else %}
-    <body class="single">
-  {% endif %}
+  <body>
 
   <div class="toTop"><i class="fas fa-angle-up"></i></div>
 
@@ -17,11 +13,7 @@
         {{ content }}
       </div>
     </main>
-    {% if page.layout == 'home' %}
-      {% include index-footer.html %}
-    {% else %}
-      {% include footer.html %}
-    {% endif %}
+    {% include index-footer.html %}
   </div>
 
   <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
