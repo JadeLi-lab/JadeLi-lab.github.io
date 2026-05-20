@@ -49,7 +49,7 @@
     document.querySelectorAll('.header-nav a, nav.links a, #menu a').forEach(function(a) {
       var href = a.getAttribute('href');
       if (href && (href === path || (path !== '/' && href !== '/' && path.startsWith(href)))) {
-        a.style.color = '#fff'; a.style.fontWeight = 'bold';
+        a.style.color = '#fff';
       }
     });
   })();
