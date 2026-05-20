@@ -8,9 +8,9 @@ permalink: /vibecoding/
 {% assign vEn = en.vibecoding %}
 {% assign vZh = zh.vibecoding %}
 
-<a href="{{ vEn.aiMapLink }}" target="_blank" rel="noopener" style="display:block;text-decoration:none;color:inherit;background:#fff;border:1px solid #ddd;border-radius:8px;overflow:hidden;transition:all 0.3s" onmouseenter="this.style.boxShadow='0 8px 30px rgba(0,0,0,0.12)'" onmouseleave="this.style.boxShadow='none'">
+<a href="{{ vEn.aiMapLink }}" target="_blank" rel="noopener" style="display:block;text-decoration:none;color:inherit;background:#fff;border:1px solid #ddd;border-radius:8px;overflow:hidden;transition:all 0.3s;max-width:100%" onmouseenter="this.style.boxShadow='0 8px 30px rgba(0,0,0,0.12)'" onmouseleave="this.style.boxShadow='none'">
 
-  <div style="background:linear-gradient(135deg,#0a0e17 0%,#111827 40%,#1a1040 70%,#0c0e1a 100%);padding:40px 32px;position:relative;min-height:260px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid #1e293b">
+  <div style="background:linear-gradient(135deg,#0a0e17 0%,#111827 40%,#1a1040 70%,#0c0e1a 100%);padding:40px 32px;position:relative;min-height:260px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid #1e293b;overflow:hidden">
 
     <div style="position:absolute;top:30px;left:40px;width:56px;height:56px;border-radius:50%;background:radial-gradient(circle,#10a37f,#10a37f44);opacity:0.8"></div>
     <div style="position:absolute;top:70px;left:170px;width:46px;height:46px;border-radius:50%;background:radial-gradient(circle,#d97706,#d9770644);opacity:0.8"></div>
