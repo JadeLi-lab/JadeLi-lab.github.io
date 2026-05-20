@@ -1,0 +1,23 @@
+- name: Home
+  name_zh: 首页
+  href: /
+
+- name: Research
+  name_zh: 研究方向
+  href: /research/
+
+- name: Publications
+  name_zh: 论文成果
+  href: /publications/
+
+- name: Gallery
+  name_zh: 研究成果
+  href: /gallery/
+
+- name: Daily
+  name_zh: 日常分享
+  href: /daily/
+
+- name: Vibe Coding
+  name_zh: vibe coding
+  href: /vibecoding/

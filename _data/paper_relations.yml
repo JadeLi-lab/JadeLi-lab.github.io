@@ -1,0 +1,64 @@
+- source: 8
+  target: 5
+  label: Propagation model → Quantification
+  labelCN: 传播模型 → 量化
+- source: 8
+  target: 11
+  label: Model → Mitigation framework
+  labelCN: 模型 → 缓解框架
+- source: 5
+  target: 11
+  label: Quantification → Mitigation
+  labelCN: 量化 → 缓解
+- source: 8
+  target: 10
+  label: Steady-state model → Vulnerability ID
+  labelCN: 稳态模型 → 脆弱性识别
+- source: 10
+  target: 4
+  label: Vulnerability → Interdependence
+  labelCN: 脆弱性 → 相互依赖
+- source: 6
+  target: 7
+  label: IBR impact → Optimal placement
+  labelCN: IBR影响 → 最优配置
+- source: 7
+  target: 9
+  label: Placement → Topology design
+  labelCN: 配置 → 拓扑设计
+- source: 4
+  target: 6
+  label: Interdependence → IBR effects
+  labelCN: 相互依赖 → IBR效应
+- source: 9
+  target: 6
+  label: Topology ← IBR interaction
+  labelCN: 拓扑 ← IBR交互
+- source: 2
+  target: 4
+  label: Competition theory → Interdependence
+  labelCN: 竞争理论 → 相互依赖
+- source: 1
+  target: 3
+  label: Resilience → Distributed backup
+  labelCN: 韧性 → 分布式备份
+- source: 8
+  target: 1
+  label: Failure model ← Swarm resilience
+  labelCN: 故障模型 ← 集群韧性
+- source: 1
+  target: 2
+  label: Swarm resilience → Competition dynamics
+  labelCN: 集群韧性 → 竞争动力学
+- source: 1
+  target: 4
+  label: Swarm resilience → Interdependence
+  labelCN: 集群韧性 → 相互依赖
+- source: 1
+  target: 9
+  label: Swarm resilience → Topology robustness
+  labelCN: 集群韧性 → 拓扑鲁棒性
+- source: 1
+  target: 11
+  label: Resilience → Mitigation strategies
+  labelCN: 韧性 → 缓解策略

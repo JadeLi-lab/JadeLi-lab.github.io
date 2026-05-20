@@ -1,15 +1,53 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Meixuan LI — Academic Homepage | 李美璇学术主页</title>
-    <meta name="description" content="Meixuan LI (李美璇) — City University of Hong Kong. Research: Large-Scale Complex Systems, CPS Resilience, UAV Swarms." />
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎓</text></svg>" />
-    <script type="module" crossorigin src="/assets/index-cLsGYnCW.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-clZQK8p_.css">
-  </head>
-  <body>
-    <div id="root"></div>
-  </body>
-</html>
+---
+layout: home
+---
+{% assign en = site.data.i18n.en %}
+{% assign zh = site.data.i18n.zh %}
+{% assign dirKeys = "d1,d2,d3" | split: "," %}
+
+<!-- INTRO -->
+<article class="post">
+  <header>
+    <div class="title">
+      <h2 style="color:#000">Meixuan Jade Li</h2>
+    </div>
+  </header>
+  <p style="color:#000" data-en="{{ en.hero.desc }}" data-zh="{{ zh.hero.desc }}">{{ en.hero.desc }}</p>
+</article>
+
+<!-- RESEARCH DIRECTIONS -->
+<article class="post">
+  <header>
+    <div class="title">
+      <h2 style="color:#000">🔬 <span data-en="Research Directions" data-zh="研究方向">Research Directions</span></h2>
+      <p style="color:#000" data-en="Three interconnected research pillars" data-zh="三个相互关联的研究支柱">Three interconnected research pillars</p>
+    </div>
+  </header>
+
+  <div style="display:flex;flex-wrap:wrap;gap:16px;margin-bottom:12px">
+    {% for dk in dirKeys %}
+    {% assign i = forloop.index0 %}
+    {% assign d = en.directions[dk] %}
+    {% assign dz = zh.directions[dk] %}
+    {% assign tagBgs = "#e8f0fe,#f3e8ff,#e6f6ed" | split: "," %}
+    {% assign tagColors = "#1a56db,#6d28d9,#176434" | split: "," %}
+    {% assign shadows = "0 4px 16px rgba(77,144,254,0.12)|0 4px 16px rgba(155,89,182,0.12)|0 4px 16px rgba(46,204,113,0.12)" | split: "|" %}
+    <div style="flex:1;min-width:220px;border:1px solid #ddd;border-radius:8px;padding:20px;border-top:4px solid {{ colors[i] }};border-left:4px solid {{ colors[i] }};background:#fafafa;box-shadow:{{ shadows[i] }}">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px">
+        <span style="background:{{ colors[i] }};color:#fff;width:32px;height:32px;border-radius:8px;display:inline-flex;align-items:center;justify-content:center;font-size:16px;font-weight:800;flex-shrink:0">0{{ i | plus: 1 }}</span>
+        <h3 style="margin:0;font-size:1.1em;color:{{ colors[i] }}" data-en="{{ d.title }}" data-zh="{{ dz.title }}">{{ d.title }}</h3>
+      </div>
+      <p style="font-size:0.8em;color:#555;margin:0 0 8px;font-weight:600" data-en="{{ d.subtitle }}" data-zh="{{ dz.subtitle }}">{{ d.subtitle }}</p>
+      <p style="font-size:0.85em;color:#000" data-en="{{ d.content | truncate: 120 }}" data-zh="{{ dz.content | truncate: 120 }}">{{ d.content | truncate: 120 }}</p>
+      <div style="display:flex;flex-wrap:wrap;gap:4px;margin-top:10px">
+        {% for kw in d.keywords limit:4 %}
+        <span style="font-size:0.7em;background:{{ tagBgs[i] }};color:{{ tagColors[i] }};padding:3px 9px;border-radius:12px;font-weight:600">{{ kw }}</span>
+        {% endfor %}
+      </div>
+      <a href="{{ '/research' | relative_url }}" style="display:inline-block;margin-top:12px;font-size:0.85em;font-weight:700;color:{{ colors[i] }}">
+        <span data-en="Read more →" data-zh="了解更多 →">Read more →</span>
+      </a>
+    </div>
+    {% endfor %}
+  </div>
+</article>

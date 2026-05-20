@@ -1,0 +1,42 @@
+<header id="header">
+  <div style="padding:8px 0 4px">
+    <h1 style="font-size:28px;line-height:1.2;margin:0"><a href="{{ '/' | relative_url }}"><span data-en="{{ site.author.name }}" data-zh="李美璇">{{ site.author.name }}</span></a></h1>
+    <p style="font-size:13px;color:#9ca3af;margin:2px 0 0;font-weight:400">
+      <span data-en="🚀 Welcome to my space!" data-zh="🚀 欢迎来到我的空间！">🚀 Welcome to my space!</span>
+    </p>
+  </div>
+  <nav class="links">
+    <ul>
+      {% for link in site.data.links %}
+        <li><a href="{{ link.href | relative_url }}"><span data-en="{{ link.name }}" data-zh="{{ link.name_zh }}">{{ link.name }}</span></a></li>
+      {% endfor %}
+      <li><button onclick="toggleLang()" style="background:#1d4ed8;color:#fff;border:none;padding:6px 16px;border-radius:20px;cursor:pointer;font-size:13px;font-weight:700;font-family:inherit;min-width:88px;text-align:center;white-space:nowrap;flex-shrink:0" id="langBtn" onmouseenter="this.style.background='#1e40af'" onmouseleave="this.style.background='#1d4ed8'">🌐 中文</button></li>
+    </ul>
+  </nav>
+  <nav class="main">
+    <ul>
+      <li class="menu">
+        <a href="#menu"><i class="fas fa-bars"></i></a>
+      </li>
+    </ul>
+  </nav>
+
+  <section id="menu">
+    <section>
+      <ul class="links">
+        {% for link in site.data.links %}
+        <li><a href="{{ link.href | relative_url }}"><h3><span data-en="{{ link.name }}" data-zh="{{ link.name_zh }}">{{ link.name }}</span></h3></a></li>
+        {% endfor %}
+      </ul>
+    </section>
+    <section>
+      <p style="color:#bbb;font-size:0.85em;text-align:center">
+        📧 {{ site.author.email }}<br>
+        🔗 ORCID: {{ site.author.orcid }}
+      </p>
+      <p style="text-align:center;margin-top:10px">
+        <button onclick="toggleLang()" style="background:#1d4ed8;color:#fff;border:none;padding:6px 18px;border-radius:20px;cursor:pointer;font-size:13px;font-weight:700;font-family:inherit" id="langBtn2">🌐 中文</button>
+      </p>
+    </section>
+  </section>
+</header>
