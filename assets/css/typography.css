@@ -74,8 +74,8 @@ body.single #header { background-color: #111827 !important; }
 #header nav.links a:hover { color: #fff !important; font-weight: 500 !important; }
 #header .links ul { display: flex !important; align-items: center !important; gap: 0 !important; }
 #header .links ul li { flex-shrink: 0 !important; }
-#header .main ul li > a { color: #60a5fa !important; font-size: 20px !important; }
-#header .main ul li > a:hover { color: #93c5fd !important; }
+#header .main ul li > a { color: #fff !important; font-size: 18px !important; background: #1d4ed8 !important; width: 36px !important; height: 36px !important; border-radius: 50% !important; display: inline-flex !important; align-items: center !important; justify-content: center !important; }
+#header .main ul li > a:hover { background: #2563eb !important; color: #fff !important; }
 
 /* Side menu (slide-out) — dark */
 #menu {
